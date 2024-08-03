@@ -82,3 +82,9 @@ def simulate_pedalboard():
         return {'error': 'Pedal Type Error', 'message': 'Your pedalboard consists of unsupported pedal type.'}, 400
     except PedalParamError:
         return {'error': 'Pedal Parameter Error', 'message': 'Your pedals contain invalid parameter value(s).'}, 400
+
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    app.logger.error(e)
+    return {'error': 'Unexpected Error', 'message': 'An unexpected error occurs during processing.'}, 400

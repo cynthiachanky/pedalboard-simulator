@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "pip3 install -r requirements.txt && python3 prebuild.py",
     "flask-dev": "pip3 install -r requirements.txt && python3 -m flask --app api/index run --debug",
     "next-dev": "next dev",
-    "dev": "concurrently \"pnpm run next-dev\" \"pnpm run flask-dev\"",
-    "build": "next build",
+    "dev": "pnpm prebuild && concurrently \"pnpm run next-dev\" \"pnpm run flask-dev\"",
+    "build": "pnpm prebuild && next build",
     "start": "next start",
     "lint": "next lint"
   },

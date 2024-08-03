@@ -39,17 +39,17 @@ def create_pedalboard(config: list) -> Pedalboard:
     return Pedalboard(pedal_list)
 
 
-@app.get('/api/config')
-def get_config():
-    config = []
-    for pedal in pedal_config:
-        params = []
-        for param in pedal_config[pedal]['params'].values():
-            param_config = param.copy()
-            param_config.pop('fx', None)
-            params.append(param_config)
-        config.append({'id': pedal, 'name': pedal_config[pedal]['name'], 'params': params})
-    return config
+# @app.get('/api/config')
+# def get_config():
+#     config = []
+#     for pedal in pedal_config:
+#         params = []
+#         for param in pedal_config[pedal]['params'].values():
+#             param_config = param.copy()
+#             param_config.pop('fx', None)
+#             params.append(param_config)
+#         config.append({'id': pedal, 'name': pedal_config[pedal]['name'], 'params': params})
+#     return config
 
 
 @app.post('/api/simulation')

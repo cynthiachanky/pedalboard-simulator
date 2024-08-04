@@ -7,6 +7,7 @@ import {pedalboardAtom, pedalIndexAtom} from '@/context/atoms';
 import {Label} from '@/components/ui/label';
 import {Slider} from '@/components/ui/slider';
 import {Checkbox} from '@/components/ui/checkbox';
+import RemovePedalButton from '@/components/RemovePedalButton';
 
 export default function PedalConfigurator() {
   const pedalIndex = useAtomValue(pedalIndexAtom);
@@ -37,6 +38,8 @@ export default function PedalConfigurator() {
 
   const generateInputElement = useCallback(
     (pedal: Pedal, param: ParamType) => {
+      if (!pedal) return null;
+
       switch (param.type) {
         case 'number':
           return (
@@ -78,15 +81,22 @@ export default function PedalConfigurator() {
   );
 
   return (
-    <form className={'card h-fit'}>
+    <div className={'card h-fit'}>
       {pedalConfig ? (
-        <fieldset className={'grid rounded-lg border p-4'}>
-          <legend className={'-ml-1 px-1 text-sm font-medium'}>{pedalConfig.name}</legend>
-          {pedalConfig.params.map((param) => generateInputElement(pedalboard[pedalIndex], param))}
-        </fieldset>
+        <>
+          <form>
+            <fieldset className={'grid rounded-lg border p-4'}>
+              <legend className={'-ml-1 px-1 text-sm font-medium'}>
+                #{pedalIndex + 1} {pedalConfig.name}
+              </legend>
+              {pedalConfig.params.map((param) => generateInputElement(pedalboard[pedalIndex], param))}
+            </fieldset>
+          </form>
+          <RemovePedalButton />
+        </>
       ) : (
         <p>Select a pedal to configure.</p>
       )}
-    </form>
+    </div>
   );
 }

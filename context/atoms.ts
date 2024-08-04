@@ -15,7 +15,5 @@ export const DEFAULT_PEDAL_CONFIG: {[id: string]: {[param: string]: any}} = conf
   {}
 );
 
-const initialPedalboard: Pedal[] = Object.entries(DEFAULT_PEDAL_CONFIG).map(([id, params]) => ({id, ...params}));
-
-export const pedalboardAtom = atom<Pedal[]>(initialPedalboard);
+export const pedalboardAtom = atom<Pedal[]>([]);
 export const pedalIndexAtom = atom<number>(-1);

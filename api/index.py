@@ -5,7 +5,7 @@ from io import BytesIO
 from uuid import uuid4 as uuid
 from pedalboard import Pedalboard, Plugin
 from pedalboard.io import AudioFile
-from pedal import config as pedal_config
+from api.pedal import config as pedal_config
 
 MAX_PEDAL_COUNT = 32
 MAX_FILE_SIZE = 1024 * 1024 * 10  # 10MB

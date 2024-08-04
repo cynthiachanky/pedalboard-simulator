@@ -2,7 +2,7 @@
 # The actual boundaries are defined with reference to the default plugins in Logic Pro.
 
 from sys import float_info
-from pedal import config as pedal_config
+from api.pedal import config as pedal_config
 
 if __name__ == '__main__':
     for pedal in pedal_config.values():

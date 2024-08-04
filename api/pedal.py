@@ -7,7 +7,8 @@ config = {
         'params': {
             'rate_hz': {'id': 'rate', 'unit': 'Hz', 'type': 'number', 'min': 0, 'max': 100, 'default': 1.0},
             'depth': {'id': 'depth', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.25},
-            'centre_delay_ms': {'id': 'delay', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 1000, 'step': 1, 'default': 7},
+            'centre_delay_ms': {'id': 'delay', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 1000, 'step': 1,
+                                'default': 7},
             'feedback': {'id': 'feedback', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.0},
             'mix': {'id': 'mix', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.5}
         }
@@ -18,16 +19,18 @@ config = {
         'params': {
             'threshold_db': {'id': 'threshold', 'unit': 'dB', 'type': 'number', 'min': -50, 'max': 0, 'default': 0},
             'ratio': {'id': 'ratio', 'type': 'number', 'min': 1, 'max': 30, 'default': 1},
-            'attack_ms': {'id': 'attack', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 200, 'step': 1, 'default': 1},
-            'release_ms': {'id': 'release', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 5000, 'step': 1, 'default': 100}
+            'attack_ms': {'id': 'attack', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 200, 'step': 1,
+                          'default': 1},
+            'release_ms': {'id': 'release', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 5000, 'step': 1,
+                           'default': 100}
         }
     },
     'delay': {
         'name': 'Delay',
         'plugin': Delay,
         'params': {
-            'delay_seconds': {'id': 'delay', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 30000, 'step': 1, 'default': 500,
-                              'fx': (lambda x: x / 1000)},
+            'delay_seconds': {'id': 'delay', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 30000, 'step': 1,
+                              'default': 500, 'fx': (lambda x: x / 1000)},
             'feedback': {'id': 'feedback', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.0},
             'mix': {'id': 'mix', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.5}
         }
@@ -50,18 +53,23 @@ config = {
         'name': 'Limiter',
         'plugin': Limiter,
         'params': {
-            'threshold_db': {'id': 'threshold', 'unit': 'dB', 'type': 'number', 'min': -20, 'max': 20, 'default': -10.0},
-            'release_ms': {'id': 'release', 'unit': 'ms', 'type': 'number', 'min': 2, 'max': 2000, 'step': 1, 'default': 100}
+            'threshold_db': {'id': 'threshold', 'unit': 'dB', 'type': 'number', 'min': -20, 'max': 20,
+                             'default': -10.0},
+            'release_ms': {'id': 'release', 'unit': 'ms', 'type': 'number', 'min': 2, 'max': 2000, 'step': 1,
+                           'default': 100}
         }
     },
     'noise_gate': {
         'name': 'Noise Gate',
         'plugin': NoiseGate,
         'params': {
-            'threshold_db': {'id': 'threshold', 'unit': 'dB', 'type': 'number', 'min': -100, 'max': 0, 'default': -100.0},
+            'threshold_db': {'id': 'threshold', 'unit': 'dB', 'type': 'number', 'min': -100, 'max': 0,
+                             'default': -100.0},
             'ratio': {'id': 'ratio', 'type': 'number', 'min': 1, 'max': 30, 'default': 10},
-            'attack_ms': {'id': 'attack', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 100, 'step': 1, 'default': 1},
-            'release_ms': {'id': 'release', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 10000, 'step': 1, 'default': 100}
+            'attack_ms': {'id': 'attack', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 100, 'step': 1,
+                          'default': 1},
+            'release_ms': {'id': 'release', 'unit': 'ms', 'type': 'number', 'min': 0, 'max': 10000, 'step': 1,
+                           'default': 100}
         }
     },
     'phaser': {
@@ -70,8 +78,8 @@ config = {
         'params': {
             'rate_hz': {'id': 'rate', 'unit': 'Hz', 'type': 'number', 'min': 0, 'max': 10, 'default': 1.0},
             'depth': {'id': 'depth', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.5},
-            'centre_frequency_hz': {'id': 'frequency', 'unit': 'Hz', 'type': 'number', 'min': 20, 'max': 20000, 'step': 1,
-                                    'default': 1300},
+            'centre_frequency_hz': {'id': 'frequency', 'unit': 'Hz', 'type': 'number', 'min': 20, 'max': 20000,
+                                    'step': 1, 'default': 1300},
             'feedback': {'id': 'feedback', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.0},
             'mix': {'id': 'mix', 'type': 'number', 'min': 0, 'max': 1, 'default': 0.5}
         }

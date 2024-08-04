@@ -23,7 +23,7 @@ export default function AddPedalButton() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className={'mt-8 col-span-5'}>Add Pedal</Button>
+        <Button className={'mt-8 w-full'}>Add Pedal</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={'w-56'}>
         {config.map(({id, name}: PedalConfig) => (

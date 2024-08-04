@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useCallback, useEffect, useState} from 'react';
-import config from '../public/pedal-config.json';
+import config from '@/public/pedal-config.json';
 import {useAtom, useAtomValue} from 'jotai';
 import {pedalboardAtom, pedalIndexAtom} from '@/context/atoms';
 import {Label} from '@/components/ui/label';
@@ -65,7 +65,7 @@ export default function PedalConfigurator() {
                 checked={pedal[param.id]}
                 onCheckedChange={(value) => updatePedalboard(param.id, value)}
               />
-              <Label className={'capitalize'} htmlFor={param.id}>
+              <Label className={'capitalize cursor-pointer'} htmlFor={param.id}>
                 {param.id}
               </Label>
             </div>

@@ -1,4 +1,5 @@
 from flask import Flask, request, make_response, send_file
+from werkzeug.exceptions import HTTPException
 from json import loads as parse_json
 from io import BytesIO
 from uuid import uuid4 as uuid
@@ -6,7 +7,11 @@ from pedalboard import Pedalboard, Plugin
 from pedalboard.io import AudioFile
 from pedal import config as pedal_config
 
+MAX_PEDAL_COUNT = 32
+MAX_FILE_SIZE = 1024 * 1024 * 10  # 10MB
+
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
 
 
 class PedalTypeError(Exception):
@@ -57,6 +62,9 @@ def simulate_pedalboard():
     try:
         app.logger.debug('=== Start of Pedalboard Creation ===')
         pedalboard_json = parse_json(request.form['pedalboard'])
+        if len(pedalboard_json) >= MAX_PEDAL_COUNT:
+            app.logger.error('Pedal Chain Too Long')
+            return {'error': 'Pedal Chain Too Long', 'message': 'Your pedalboard exceeds the maximum pedal limit.'}, 400
         pedalboard = create_pedalboard(pedalboard_json)
         app.logger.debug('=== End of Pedalboard Creation ===')
 
@@ -79,9 +87,20 @@ def simulate_pedalboard():
             response.headers['Access-Control-Allow-Origin'] = '*'
         return response
     except PedalTypeError:
+        app.logger.error('Pedal Type Error')
         return {'error': 'Pedal Type Error', 'message': 'Your pedalboard consists of unsupported pedal type.'}, 400
     except PedalParamError:
+        app.logger.error('Pedal Param Error')
         return {'error': 'Pedal Parameter Error', 'message': 'Your pedals contain invalid parameter value(s).'}, 400
+
+
+@app.errorhandler(HTTPException)
+def handle_http_exception(e):
+    app.logger.error(e)
+    if e.code == 413:
+        return {'error': 'Audio File Too Large', 'message': 'Your audio file exceeds the maximum file size limit.'}, 413
+    else:
+        return {'error': e.name, 'message': e.description}, e.code
 
 
 @app.errorhandler(Exception)

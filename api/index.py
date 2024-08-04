@@ -8,7 +8,7 @@ from pedalboard.io import AudioFile
 from api.pedal import config as pedal_config
 
 MAX_PEDAL_COUNT = 32
-MAX_FILE_SIZE = 1024 * 1024 * 10  # 10MB
+MAX_FILE_SIZE = 1024 * 1024 * 4  # 4MB
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE

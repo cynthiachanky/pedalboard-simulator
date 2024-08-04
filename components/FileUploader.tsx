@@ -42,7 +42,7 @@ export default function FileUploader() {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>?</TooltipTrigger>
-              <TooltipContent>Upload any audio file up to 10MB in size.</TooltipContent>
+              <TooltipContent>Upload any audio file up to 4MB in size.</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </Label>

@@ -17,4 +17,4 @@ export const DEFAULT_PEDAL_CONFIG: {[id: string]: {[param: string]: any}} = PEDA
 );
 
 export const MAX_PEDAL_COUNT = 32;
-export const MAX_FILE_SIZE = 1024 * 1024 * 10; // 10MB
+export const MAX_FILE_SIZE = 1024 * 1024 * 4; // 4MB

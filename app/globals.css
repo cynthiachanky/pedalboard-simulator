@@ -52,4 +52,43 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  ul {
+    @apply list-disc pl-7;
+  }
+
+  ol {
+    @apply list-decimal pl-7;
+  }
+
+  form {
+    @apply grid gap-6;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2.5 h-2.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground rounded;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-muted rounded-xl p-4;
+  }
+
+  .card::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .form-control {
+    @apply grid gap-1.5;
+  }
 }

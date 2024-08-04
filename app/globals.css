@@ -87,8 +87,4 @@
   .card::-webkit-scrollbar-track {
     background-color: transparent;
   }
-
-  .form-control {
-    @apply grid gap-1.5;
-  }
 }

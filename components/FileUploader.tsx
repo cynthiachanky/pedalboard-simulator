@@ -24,7 +24,7 @@ export default function FileUploader({pedalboard}: {pedalboard: Pedal[]}) {
 
   return (
     <form className={'card h-fit'} onSubmit={generateAudio}>
-      <div className={'form-control'}>
+      <div className={'grid gap-1.5'}>
         <Label htmlFor={'audio'}>Audio</Label>
         <Input id={'audio'} className={'max-w-sm'} type={'file'} required />
       </div>

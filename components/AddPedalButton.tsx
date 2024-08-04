@@ -3,7 +3,8 @@
 import React, {useCallback} from 'react';
 import config from '@/public/pedal-config.json';
 import {useAtom, useSetAtom} from 'jotai';
-import {DEFAULT_PEDAL_CONFIG, pedalboardAtom, pedalIndexAtom} from '@/context/atoms';
+import {pedalboardAtom, pedalIndexAtom} from '@/context/atoms';
+import {DEFAULT_PEDAL_CONFIG, MAX_PEDAL_COUNT} from '@/lib/constants';
 import {Button} from '@/components/ui/button';
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from '@/components/ui/dropdown-menu';
 
@@ -23,7 +24,9 @@ export default function AddPedalButton() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className={'mt-8 w-full'}>Add Pedal</Button>
+        <Button className={'mt-8 w-full'} disabled={pedalboard.length === MAX_PEDAL_COUNT}>
+          Add Pedal
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={'w-56'}>
         {config.map(({id, name}: PedalConfig) => (

@@ -69,6 +69,10 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground rounded;
   }
+
+  input[type='file']::-webkit-file-upload-button {
+    @apply text-inherit cursor-pointer;
+  }
 }
 
 @layer components {

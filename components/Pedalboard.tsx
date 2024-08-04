@@ -27,7 +27,7 @@ export default function Pedalboard() {
           Experiment with different effects, save your configurations, and generate processed audio files effortlessly.
         </h3>
       )}
-      <ul ref={pedalboardRef} className={'grid grid-cols-5 gap-4'}>
+      <ul ref={pedalboardRef} className={'grid md:grid-cols-3 xl:grid-cols-5 gap-4'}>
         {pedals.map(({id}: Pedal, index: number) => {
           const pedal = PEDAL_CONFIG.find((pedalConfig) => pedalConfig.id === id);
           return (

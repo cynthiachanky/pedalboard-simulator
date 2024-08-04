@@ -4,16 +4,13 @@ interface Pedal {
   [key: string]: any;
 }
 
-type ParamSlider = {
+type BaseParams<T = number | boolean> = {
   id: string;
-  unit?: string;
-  type: 'number';
-  min: number;
-  max: number;
-  step?: number;
-  default: number;
+  type: T extends number ? 'number' : T extends boolean ? 'boolean' : string;
+  default: T;
 };
-type ParamCheckbox = {id: string; type: 'boolean'; default: boolean};
+type ParamSlider = BaseParams<number> & {unit?: string; min: number; max: number; step?: number};
+type ParamCheckbox = BaseParams<boolean>;
 type ParamType = ParamSlider | ParamCheckbox;
 
 interface PedalConfig {

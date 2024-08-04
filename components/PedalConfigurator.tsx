@@ -1,9 +1,9 @@
 'use client';
 
 import React, {useCallback, useEffect, useState} from 'react';
-import config from '@/public/pedal-config.json';
 import {useAtom, useAtomValue} from 'jotai';
 import {pedalboardAtom, pedalIndexAtom} from '@/context/atoms';
+import {PEDAL_CONFIG} from '@/lib/constants';
 import {Label} from '@/components/ui/label';
 import {Slider} from '@/components/ui/slider';
 import {Checkbox} from '@/components/ui/checkbox';
@@ -15,9 +15,9 @@ export default function PedalConfigurator() {
   const [pedalConfig, setPedalConfig] = useState<PedalConfig>();
 
   useEffect(() => {
-    const pedalConfig: PedalConfig =
+    const pedalConfig =
       pedalIndex >= 0 && pedalIndex < pedalboard.length
-        ? config.find((pedalConfig: PedalConfig) => pedalConfig.id === pedalboard[pedalIndex].id)
+        ? PEDAL_CONFIG.find((pedalConfig) => pedalConfig.id === pedalboard[pedalIndex].id)
         : undefined;
     setPedalConfig(pedalConfig);
   }, [pedalIndex, pedalboard.length]);

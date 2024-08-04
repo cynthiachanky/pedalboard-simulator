@@ -1,10 +1,9 @@
 'use client';
 
 import React, {useCallback} from 'react';
-import config from '@/public/pedal-config.json';
 import {useAtom, useSetAtom} from 'jotai';
 import {pedalboardAtom, pedalIndexAtom} from '@/context/atoms';
-import {DEFAULT_PEDAL_CONFIG, MAX_PEDAL_COUNT} from '@/lib/constants';
+import {DEFAULT_PEDAL_CONFIG, MAX_PEDAL_COUNT, PEDAL_CONFIG} from '@/lib/constants';
 import {Button} from '@/components/ui/button';
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from '@/components/ui/dropdown-menu';
 
@@ -29,7 +28,7 @@ export default function AddPedalButton() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={'w-56'}>
-        {config.map(({id, name}: PedalConfig) => (
+        {PEDAL_CONFIG.map(({id, name}) => (
           <DropdownMenuItem key={id} onSelect={() => addPedal(id)}>
             {name}
           </DropdownMenuItem>

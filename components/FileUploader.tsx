@@ -14,8 +14,9 @@ export default function FileUploader() {
   const pedalboard = useAtomValue(pedalboardAtom);
   const [error, setError] = useState<string>();
 
-  const generateAudio = async (e) => {
+  const generateAudio = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
+      if (!(e.target instanceof HTMLFormElement)) return;
       e.preventDefault();
       const audioFile = e.target.audio.files[0];
       if (audioFile.size <= MAX_FILE_SIZE) {
@@ -28,8 +29,8 @@ export default function FileUploader() {
         source.connect(audioCtx.destination);
         source.start();
       } else setError('The selected audio file exceeds the maximum file size limit.');
-    } catch (err) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) setError(err.message);
     }
   };
 

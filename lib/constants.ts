@@ -1,6 +1,8 @@
 import config from '@/public/pedal-config.json';
 
-export const DEFAULT_PEDAL_CONFIG: {[id: string]: {[param: string]: any}} = config.reduce(
+export const PEDAL_CONFIG = config as PedalConfig[];
+
+export const DEFAULT_PEDAL_CONFIG: {[id: string]: {[param: string]: any}} = PEDAL_CONFIG.reduce(
   (accu, pedalConfig: PedalConfig) => ({
     ...accu,
     [pedalConfig.id]: pedalConfig.params.reduce(

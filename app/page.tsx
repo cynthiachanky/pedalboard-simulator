@@ -6,9 +6,7 @@ import PedalConfigurator from '@/components/PedalConfigurator';
 export default function IndexPage() {
   return (
     <main className={'h-[calc(100vh-65px)] p-8 grid grid-cols-[3fr_1fr] gap-8'}>
-      <div className={'overflow-y-auto card'}>
-        <Pedalboard />
-      </div>
+      <Pedalboard />
       <div className={'space-y-8'}>
         <FileUploader />
         <PedalConfigurator />

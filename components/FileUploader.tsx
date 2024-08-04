@@ -8,6 +8,7 @@ import {processAudio} from '@/lib/fetchers';
 import {Label} from '@/components/ui/label';
 import {Input} from '@/components/ui/input';
 import {Button} from '@/components/ui/button';
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip';
 
 export default function FileUploader() {
   const pedalboard = useAtomValue(pedalboardAtom);
@@ -35,7 +36,15 @@ export default function FileUploader() {
   return (
     <form className={'card h-fit'} onSubmit={generateAudio}>
       <div className={'grid gap-1.5'}>
-        <Label htmlFor={'audio'}>Audio</Label>
+        <Label htmlFor={'audio'}>
+          Audio{' '}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>?</TooltipTrigger>
+              <TooltipContent>Upload any audio file up to 10MB in size.</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </Label>
         <Input id={'audio'} className={'max-w-sm cursor-pointer'} type={'file'} accept={'audio/*'} required />
         {error && <small className={'text-red-500'}>{error}</small>}
       </div>

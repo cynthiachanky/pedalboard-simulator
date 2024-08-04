@@ -21,7 +21,12 @@ export default function Pedalboard() {
   useEffect(() => setPedals(pedalboard), [pedalboard]);
 
   return (
-    <div>
+    <div className={'card'}>
+      {pedals.length === 0 && (
+        <h3 className={'text-lg font-semibold'}>
+          Experiment with different effects, save your configurations, and generate processed audio files effortlessly.
+        </h3>
+      )}
       <ul ref={pedalboardRef} className={'grid grid-cols-5 gap-4'}>
         {pedals.map(({id}: Pedal, index: number) => {
           const pedal = config.find((pedalConfig: PedalConfig) => pedalConfig.id === id);

@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../public/pedal-config.json';
 import FileUploader from '@/components/FileUploader';
+import PedalConfigurator from '@/components/PedalConfigurator';
 
 export default function IndexPage() {
   return (
@@ -22,8 +23,9 @@ export default function IndexPage() {
           ))}
         </ol>
       </div>
-      <div>
-        <FileUploader pedalboard={[]} />
+      <div className={'grid gap-8'}>
+        <FileUploader />
+        <PedalConfigurator />
       </div>
     </main>
   );

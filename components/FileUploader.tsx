@@ -1,12 +1,16 @@
 'use client';
 
 import React from 'react';
+import {useAtomValue} from 'jotai';
+import {pedalboardAtom} from '@/context/atoms';
 import {processAudio} from '@/lib/fetchers';
 import {Label} from '@/components/ui/label';
 import {Input} from '@/components/ui/input';
 import {Button} from '@/components/ui/button';
 
-export default function FileUploader({pedalboard}: {pedalboard: Pedal[]}) {
+export default function FileUploader() {
+  const pedalboard = useAtomValue(pedalboardAtom);
+
   const generateAudio = async (e) => {
     try {
       e.preventDefault();

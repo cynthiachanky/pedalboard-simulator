@@ -13,9 +13,9 @@ export default function ThemeButton() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    let storageTheme: (typeof THEME)[keyof typeof THEME];
+    let storageTheme: (typeof THEME)[keyof typeof THEME] = THEME.DARK;
     try {
-      storageTheme = JSON.parse(localStorage.getItem(THEME_STORAGE_KEY));
+      storageTheme = JSON.parse(localStorage.getItem(THEME_STORAGE_KEY) as string);
     } catch (err) {
       // ignore JSON.parse error
     }

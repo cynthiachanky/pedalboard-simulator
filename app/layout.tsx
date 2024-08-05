@@ -18,7 +18,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={JetBrainsMono.className}>
         <JotaiProvider>
           <Header />
-          {children}
+          <main className={'p-8'}>{children}</main>
         </JotaiProvider>
       </body>
     </html>

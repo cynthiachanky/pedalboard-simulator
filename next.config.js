@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   rewrites: async () => {
     return [
       {
@@ -10,4 +11,5 @@ const nextConfig = {
   }
 };
 
-module.exports = nextConfig;
+const withMDX = require('@next/mdx')();
+module.exports = withMDX(nextConfig);

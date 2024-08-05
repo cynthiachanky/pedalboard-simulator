@@ -83,4 +83,36 @@
   .card::-webkit-scrollbar-track {
     background-color: transparent;
   }
+
+  h1.markdown {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+
+  h2.markdown {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+  }
+
+  h3.markdown {
+    @apply mt-8 scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+
+  h4.markdown {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight [&:not(:first-child)]:mt-6;
+  }
+
+  p.markdown {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  a.markdown {
+    @apply font-medium text-primary underline underline-offset-4;
+  }
+
+  ul.markdown {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  }
+
+  img.markdown {
+    @apply inline;
+  }
 }

@@ -40,3 +40,4 @@ next-env.d.ts
 __pycache__
 
 public/pedal-config.json
+app/about/page.mdx

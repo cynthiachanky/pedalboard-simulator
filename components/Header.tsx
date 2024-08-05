@@ -1,5 +1,6 @@
 import React from 'react';
 import {AudioLines} from 'lucide-react';
+import ThemeButton from '@/components/ThemeButton';
 
 export default function Header() {
   return (
@@ -8,6 +9,7 @@ export default function Header() {
         <AudioLines className={'size-5 fill-foreground'} />
       </div>
       <h1 className={'text-xl font-medium'}>Pedalboard Simulator</h1>
+      <ThemeButton />
     </header>
   );
 }

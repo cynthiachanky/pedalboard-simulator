@@ -4,6 +4,7 @@ import {JetBrains_Mono} from 'next/font/google';
 import {JotaiProvider} from '@/context/JotaiProvider';
 import {DARK_MODE_CLASSNAME} from '@/lib/constants';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const JetBrainsMono = JetBrains_Mono({subsets: ['latin']});
 
@@ -19,6 +20,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <JotaiProvider>
           <Header />
           <main className={'p-8'}>{children}</main>
+          <Footer />
         </JotaiProvider>
       </body>
     </html>

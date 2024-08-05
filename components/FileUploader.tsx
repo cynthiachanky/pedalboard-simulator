@@ -23,6 +23,7 @@ export default function FileUploader() {
       e.preventDefault();
       const audioFile = e.target.audio.files[0];
       if (audioFile.size <= MAX_FILE_SIZE) {
+        stopPlayingAudio();
         setIsGenerating(true);
         const data = await processAudio(pedalboard, audioFile);
         setError(undefined);

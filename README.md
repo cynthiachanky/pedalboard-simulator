@@ -36,4 +36,3 @@ Experiment with different effects, save your configurations, and generate proces
 ### Contact
 
 - GitHub [@cynthiachanky](https://github.com/cynthiachanky)
-- GitLab [@cynthia0525](https://gitlab.com/cynthia0525)
